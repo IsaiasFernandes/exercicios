@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html,
+        body {
+            height: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font: 15px arial;
+            color: rgba(0, 0, 0, .7);
+        }
+
+        .form {
+            height: 100%;
+            min-height: 100%;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form div {
+            height: 200px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            padding-bottom: 80px;
+            text-justify: center;
+            border: 1px solid rgba(0, 0, 0, .3);
+        }
+
+    </style>
+    <title>Exercicio 01</title>
+</head>
+
+<body>
+    <div class="form">
+        <div>
+            <ul class="original">
+            </ul>
+            <button class="modificar">Modificar</button>
+            <ul class="modificada">
+            </ul>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    const palavras = ["Banana", "Coliseu", "Ananás", "Sonic", "Paralelepipedo"];
+    const ulOriginal = document.querySelector('.original');
+    const ulModificada = document.querySelector('.modificada');
+    const btnElement = document.querySelector('.modificar');
+
+    function remove(palavra, codigo) {
+        let retorno = new RegExp(codigo, 'g');
+        return palavra.replace(retorno, '');
+    }
+
+    function criarElemento(elemento, ulAtual) {
+        elemento.forEach(function (element) {
+            let liElement = document.createElement('li');
+
+            liElement.innerText = element;
+
+            ulAtual.appendChild(liElement);
+        })
+    }
+    criarElemento(palavras, ulOriginal)
+
+    btnElement.onclick = function modificar() {
+        palavras.forEach(palavra => {
+            let conjuntoNovo = [];
+            conjuntoNovo.push(remove(palavra, 'a'));
+            criarElemento(conjuntoNovo, ulModificada);
+        })
+        btnElement.setAttribute("disabled", "disabled");
+    }
+</script>
+
+</html>
