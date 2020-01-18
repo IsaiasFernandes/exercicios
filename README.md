@@ -3,7 +3,7 @@
 - [X] <b>Exercicio 1</b>: Dada as palavras “Banana”, “Coliseu”, “Ananás”, “Sonic” e “Paralelepipedo”, escreva um
 código que remova o caractere ‘a’ do conjunto fornecido. O resultado gerado pelo código deve ser o novo conjunto de palavras.
 
-- [ ] <b>Exercicio 2</b>: Utilizando o conjunto de palavras dado e o código anterior, altere-o de forma que um
+- [X] <b>Exercicio 2</b>: Utilizando o conjunto de palavras dado e o código anterior, altere-o de forma que um
 usuário possa informar o caractere a ser substituído, e então, seu substituto. O
 resultado gerado pelo código deve ser o novo conjunto de palavras.
 
