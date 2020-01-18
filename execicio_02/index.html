@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <meta http-equiv="refresh" content="4"> -->
+    <style>
+        html,
+        body {
+            height: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font: 15px arial;
+            color: rgba(0, 0, 0, .7);
+        }
+
+        .form {
+            height: 100%;
+            min-height: 100%;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form div {
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            text-justify: center;
+            border: 1px solid rgba(0, 0, 0, .3);
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+
+        }
+
+        .botao {
+            margin-top: 10px;
+            align-self: center;
+            width: 100px;
+        }
+
+        .output {
+            margin-top: 10px;
+        }
+    </style>
+    <title>Exercicio 02</title>
+</head>
+
+<body>
+    <div class="form">
+        <div>
+            <label>Caracter a ser substituído:</label>
+            <input type="text" id="caracter" maxlength="1">
+            <br>
+            <label>Substituto:</label>
+            <input type="text" id="substituto" maxlength="1">
+            <button class="botao">Substituir</button>
+            <div class="output">
+                <ul class="modificada">
+
+                </ul>   
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    const btnElement = document.querySelector('.botao');
+    const caracterELement = document.getElementById("caracter");
+    const substitutoElement = document.getElementById("substituto");
+    const ulModificada = document.querySelector('.modificada');
+    
+ 
+    function remove(palavra, codigo, substituto) {
+        let retorno = new RegExp(codigo, 'g');
+        return palavra.replace(retorno, substituto);
+    }
+
+    const palavras = ["Banana", "Coliseu", "Ananás", "Sonic", "Paralelepipedo"];
+
+    function criarElemento(elemento, ulAtual) {
+        elemento.forEach(function (element) {
+            let liElement = document.createElement('li');
+
+            liElement.innerText = element;
+
+            ulAtual.appendChild(liElement);
+        })
+    }
+
+    btnElement.onclick = function () {
+
+        palavras.forEach(palavra => {
+            let conjuntoNovo = [];
+
+            conjuntoNovo.push(remove(palavra, caracterELement.value, substitutoElement.value));
+            criarElemento(conjuntoNovo, ulModificada);
+        })
+
+    }
+
+</script>
+
+</html>
