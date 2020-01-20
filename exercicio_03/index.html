@@ -19,6 +19,7 @@
         }
 
         body {
+            background-color: rgb(41, 41, 41);
             font: 15px arial;
             color: rgba(0, 0, 0, .7);
         }
@@ -33,6 +34,8 @@
         }
 
         .form div {
+            background-color: white;
+            margin: 2px;
             display: flex;
             flex-direction: column;
             padding: 40px;
@@ -48,7 +51,7 @@
 
         }
 
-        .botao {
+        button {
             margin-top: 10px;
             align-self: center;
             width: 100px;
@@ -70,7 +73,7 @@
             <br>
             <label>Resultado:</label>
             <input type="text" id="resultadoCrip">
-            <button class="botao">criptografar</button>
+            <button class="crip">criptografar</button>
         </div>
 
         <div>
@@ -80,22 +83,46 @@
             <br>
             <label>Resultado:</label>
             <input type="text" id="resultadoDesc">
-            <button class="botao">criptografar</button>
+            <button class="desc">descriptografar</button>
         </div>
     </div>
 </body>
 <script type="text/javascript">
+    let btnCrip = document.querySelector(".crip");
+    let btnDesc = document.querySelector(".desc");
+    let inputP1 = document.getElementById("palavra1");
+    let inputP2 = document.getElementById("palavra2");
+    let outP1 = document.getElementById("resultadoCrip");
+    let outP2 = document.getElementById("resultadoDesc");
+    let abcedario = ['A','B','C','D','E','F','G','H','I','J','K',
+    'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    let codigo = ['D','E','F','G','H','I','J','K','L','M','N','O',
+    'P','Q','R','S','T','U','V','W','X','Y','Z','A','B','C'];
 
-    
-    btnElement.onclick = function () {
+    btnCrip.onclick = () => {
+        let texto = inputP1.value;
+        let cript= "";
+        for(let i = 0; i < texto.length; i++){
+            for(let j = 0; j < abcedario.length; j++){
+                if(texto[i].toUpperCase() === abcedario[j]){
+                    cript = cript + codigo[j].toLowerCase();
+                }
+            }
+        }
+        outP1.value = cript;
+    }
 
-        palavras.forEach(palavra => {
-            let conjuntoNovo = [];
-
-            conjuntoNovo.push(remove(palavra, caracterELement.value, substitutoElement.value));
-            criarElemento(conjuntoNovo, ulModificada);
-        })
-
+    btnDesc.onclick = () => {
+        let texto = inputP2.value;
+        let descrip= "";
+        for(let i = 0; i < texto.length; i++){
+            for(let j = 0; j < codigo.length; j++){
+                if(texto[i].toUpperCase() === codigo[j]){
+                    descrip = descrip + abcedario[j].toLocaleLowerCase();
+                }
+            }
+        }
+        outP2.value = descrip;
     }
 
 </script>
