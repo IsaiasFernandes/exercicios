@@ -7,10 +7,10 @@ código que remova o caractere ‘a’ do conjunto fornecido. O resultado gerado
 usuário possa informar o caractere a ser substituído, e então, seu substituto. O
 resultado gerado pelo código deve ser o novo conjunto de palavras.
 
-- [ ] <b>Exercicio 3</b>: Utilizando como base o código anterior, altere-o de forma a contemplar as seguintes
+- [x] <b>Exercicio 3</b>: Utilizando como base o código anterior, altere-o de forma a contemplar as seguintes
 definições:
-    - [ ] <b> a </b>: O usuário deve informar uma palavra na qual o sistema deve criptografar
+    - [X] <b> a </b>: O usuário deve informar uma palavra na qual o sistema deve criptografar
     (utilize a cifra de sua escolha) e mostrar em tela o resultado da
     criptografia.
-    - [ ] <b> b </b>: O usuário deve informar a palavra criptografada e o sistema deve a
+    - [X] <b> b </b>: O usuário deve informar a palavra criptografada e o sistema deve a
     decodificar e mostrar em tela o resultado da solução.
